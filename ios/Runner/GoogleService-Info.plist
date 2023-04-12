@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1048069060901-s48va860gfqhrel69opucb4el7ieu571.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1048069060901-s48va860gfqhrel69opucb4el7ieu571</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD1Uad_8trj8EPNCoHg5BY5U0w_uouZc5Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1048069060901</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kingsleyTech.sportHouse</string>
+	<key>PROJECT_ID</key>
+	<string>sport-house-9ba67</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sport-house-9ba67.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1048069060901:ios:81edf401ab557e7d6202cc</string>
+</dict>
+</plist>

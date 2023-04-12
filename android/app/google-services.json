@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1048069060901",
+    "project_id": "sport-house-9ba67",
+    "storage_bucket": "sport-house-9ba67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048069060901:android:6dcbb07b9b400d806202cc",
+        "android_client_info": {
+          "package_name": "com.kingsleyTech.sport_house"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048069060901-3eov6lk2damh9ht1hsmk7g77vupiinpg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBguBpCpvoPI7J-KZrjnOQrIVpSyn1hqH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048069060901-3eov6lk2damh9ht1hsmk7g77vupiinpg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048069060901-s48va860gfqhrel69opucb4el7ieu571.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kingsleyTech.sportHouse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
