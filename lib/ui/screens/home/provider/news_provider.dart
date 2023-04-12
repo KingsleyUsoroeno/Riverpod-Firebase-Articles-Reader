@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sport_house/data/dto/article_dto.dart';
 import 'package:sport_house/data/exceptions.dart';
 import 'package:sport_house/data/repository/news_repository.dart';
 import 'package:sport_house/ui/screens/home/provider/news_state.dart';
@@ -28,7 +29,19 @@ class NewsNotifier extends StateNotifier<NewsState> {
   }
 
   Future<void> performSearch(String searchQuery) async {
-    final searchResult = await _newsRepository.performSearch(searchQuery);
-    debugPrint("searchResult is $searchResult");
+    if (state.articles.isEmpty) return;
+
+    state = state.copyWith(isLoading: true);
+    await Future.delayed(const Duration(milliseconds: 500));
+    final List<ArticleDto> results;
+    if (searchQuery.isEmpty) {
+      results = [];
+    } else {
+      results = state.articles.where((article) {
+        return article.title != null &&
+            article.title!.toLowerCase().contains(searchQuery.toLowerCase());
+      }).toList();
+    }
+    state = state.copyWith(isLoading: false, searchResults: results);
   }
 }

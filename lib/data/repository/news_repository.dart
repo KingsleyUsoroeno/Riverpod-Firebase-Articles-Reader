@@ -18,30 +18,29 @@ class NewsRepository {
           fromFirestore: (snapshots, _) => ArticleDto.fromJson(snapshots.data()!),
           toFirestore: (article, _) => article.toJson());
 
-  Future<List<ArticleDto>> fetchTeslaNewsArticles() async {
-    final List<QueryDocumentSnapshot<ArticleDto>> articleSnapshot = await _newsArticlesRef
+  Future<List<ArticleDto>> get _articlesSnapshot async {
+    final result = await _newsArticlesRef
         .get()
         .then((snapshot) => snapshot.docs)
         .onError((error, stackTrace) => []);
 
-    if (articleSnapshot.isNotEmpty) {
-      return articleSnapshot.map((documentSnapshot) => documentSnapshot.data()).toList();
-    }
-
-    final articles = await _newsApiService.fetchTeslaArticles();
-
-    try {
-      for (var article in articles) {
-        await _newsArticlesRef.add(article);
-      }
-      return articleSnapshot.map((e) => e.data()).toList();
-    } catch (exception) {
-      debugPrint('exception is $exception');
-      return articles;
-    }
+    return result.map((snapshot) => snapshot.data()).toList();
   }
 
-  Future<List<ArticleDto>> performSearch(String searchQuery) async {
-    return List.empty();
+  Future<List<ArticleDto>> fetchTeslaNewsArticles() async {
+    if ((await _articlesSnapshot).isNotEmpty) {
+      return _articlesSnapshot;
+    } else {
+      final articles = await _newsApiService.fetchTeslaArticles();
+      try {
+        for (var article in articles) {
+          await _newsArticlesRef.add(article);
+        }
+        return _articlesSnapshot;
+      } catch (exception) {
+        debugPrint('exception is $exception');
+        return articles;
+      }
+    }
   }
 }
