@@ -14,15 +14,14 @@ class NewsApiService {
 
   Future<List<ArticleDto>> fetchTeslaArticles() async {
     if (apiKey.isEmpty) throw InvalidApiKeyException("Please provide a valid api key");
-
     final Uri uri = Uri.https(_baseUrl, 'v2/everything', {
       "q": "tesla",
-      "from": "2023-03-11",
+      "from": "2023-04-09",
       "sortBy": "publishedAt",
       "apiKey": apiKey,
     });
-
-    final response = jsonDecode((await http.get(uri)).body);
-    return List.from(response["articles"]).map((json) => ArticleDto.fromJson(json)).toList();
+    final response = await http.get(uri);
+    final data = jsonDecode(response.body);
+    return List.from(data["articles"]).map((json) => ArticleDto.fromJson(json)).toList();
   }
 }
